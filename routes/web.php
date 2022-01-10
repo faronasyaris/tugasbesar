@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PlaystationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/playstation', function () {
-    return view('Layout.app');
+Route::get('/', function () {
+    return view('welcome');
 });
 
-Route::resource('/Playstation', PlaystationController::class);
+Route::resource('/playstation', PlaystationController::class);
+

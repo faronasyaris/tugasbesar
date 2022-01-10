@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Playstation extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'id_playstation', 'name', 'booking_date', 'booking_duration', 'return_time', 'guarantee', 'status'
+    ];
 }

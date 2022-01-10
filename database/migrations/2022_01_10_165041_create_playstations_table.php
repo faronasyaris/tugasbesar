@@ -17,7 +17,7 @@ class CreatePlaystationsTable extends Migration
             $table->id('id_playstation');
             $table->string('name');
             $table->date('booking_date');
-            $table->time('booking_duration');
+            $table->string('booking_duration');
             $table->date('return_time');
             $table->string('guarantee');
             $table->string('status');
