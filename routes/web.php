@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/playstation', function () {
+    return view('Layout.app');
 });
 
 Route::resource('/Playstation', PlaystationController::class);
