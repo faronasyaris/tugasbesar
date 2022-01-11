@@ -35,7 +35,7 @@
             <td> {{ $playstation->guarantee }} </td>
             <td> {{ $playstation->status}}
                 <td>
-                    <a href="/playstation/{{ $playstation->id }}/edit/" class="btn btn-info"> Edit</a>
+                    <a href="/playstation/{{ $playstation->id_playstation }}/edit/" class="btn btn-info"> Edit</a>
                 </td>
                 <td>
                     <form action="/playstation/{{ $playstation->id }}" method="post">
