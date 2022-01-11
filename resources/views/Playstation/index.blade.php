@@ -15,6 +15,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th> Nomor </th>
             <th> ID Playstation </th>
             <th> Nama Penyewa</th>
             <th> Tanggal Sewa </th>
@@ -28,6 +29,7 @@
         @foreach ($playstations as $playstation)
         <tr>
             <td> {{ $no++ }} </td>
+            <td> {{ $playstation->id_playstation }} </td>
             <td> {{ $playstation->name }} </td>
             <td> {{ $playstation->booking_date }} </td>
             <td> {{ $playstation->booking_duration }} </td>
@@ -38,7 +40,7 @@
                     <a href="/playstation/{{ $playstation->id_playstation }}/edit/" class="btn btn-info"> Edit</a>
                 </td>
                 <td>
-                    <form action="/playstation/{{ $playstation->id }}" method="post">
+                    <form action="/playstation/{{ $playstation->id_playstation }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-dark" type="submit"> Delete</button>
