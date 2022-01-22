@@ -7,36 +7,57 @@ use Illuminate\Http\Request;
 
 class PlaystationController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $playstations = Playstation::all();
-        return view('Playstation.index', compact('playstations'));
+        //
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        return view('Playstation.create');
+        //
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-        $request->validate([
-            'id_playstation' => 'required',
-            'name' => 'required',
-            'booking_date' => 'required',
-            'booking_duration' => 'required',
-            'return_time' => 'required',
-            'guarantee' => 'required',
-            'status' => 'required',
-        ]);
-
-        Playstation::create($request->all());
-        return redirect('/playstation')->with('success', 'Booking Noted!');
+        //
     }
 
-    public function edit($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Playstation  $playstation
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Playstation $playstation)
     {
-        $playstation = Playstation::find($id);
-        return view('playstation.edit', ['playstation' => $playstation]);
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Playstation  $playstation
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Playstation $playstation)
+    {
+        //
     }
 
     /**
@@ -46,20 +67,9 @@ class PlaystationController extends Controller
      * @param  \App\Models\Playstation  $playstation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Playstation $Playstation)
+    public function update(Request $request, Playstation $playstation)
     {
-        $request->validate([
-            'id_playstation' => 'required',
-            'name' => 'required',
-            'booking_date' => 'required',
-            'booking_duration' => 'required',
-            'return_time' => 'required',
-            'guarantee' => 'required',
-            'status' => 'required',
-        ]);
-
-        $Playstation->update($request->all());
-        return redirect('/playstation')->with('success', 'Booking Updated!');
+        //
     }
 
     /**
@@ -70,7 +80,6 @@ class PlaystationController extends Controller
      */
     public function destroy(Playstation $playstation)
     {
-        $playstation->delete();
-        return redirect('/playstation')->with('success', 'Booking Data Deleted');
+        //
     }
 }
