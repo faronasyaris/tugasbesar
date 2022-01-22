@@ -36,7 +36,7 @@ class PlaystationController extends Controller
     public function edit($id)
     {
         $playstation = Playstation::find($id);
-        return view('Playstation.edit', ['Playstation' => $Playstation]);
+        return view('playstation.edit', ['playstation' => $playstation]);
     }
 
     /**
