@@ -3,7 +3,7 @@
 @section ("content")
 <br>
 <h3>Booking Data</h3>
-    <a href="/playstation/create" class="btn btn-danger"> Add Booking</a><br>
+    <a href="/booking/create" class="btn btn-danger"> Add Booking</a><br>
     <div class="col-sm-12"> <br>
 
         @if (session()->get('success'))
@@ -26,23 +26,23 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($playstations as $playstation)
+        @foreach ($booking as $bookings)
         <tr>
             <td> {{ $no++ }} </td>
-            <td> {{ $playstation->id_playstation }} </td>
-            <td> {{ $playstation->name }} </td>
-            <td> {{ $playstation->booking_date }} </td>
-            <td> {{ $playstation->booking_duration }} </td>
-            <td> {{ $playstation->return_time}} </td>
-            <td> {{ $playstation->guarantee }} </td>
-            <td> {{ $playstation->status}}
+            <td> {{ $bookings->id_playstation }} </td>
+            <td> {{ $bookings->name }} </td>
+            <td> {{ $bookings->booking_date }} </td>
+            <td> {{ $bookings->booking_duration }} </td>
+            <td> {{ $bookings->return_time}} </td>
+            <td> {{ $bookings->guarantee }} </td>
+            <td> {{ $bookings->status}}
                 <td>
-                    <a href="/playstation/{{ $playstation->id_playstation }}/edit/" class="btn btn-info"> Edit</a>
+                    <a href="/booking/{{ $bookings->id_playstation}}/edit/" class="btn btn-info"> Edit</a>
                 </td>
                 <td>
-                    <form action="/playstation/{{ $playstation->id_playstation }}" method="post">
+                    <form action="/booking/{{ $bookings->id_playstation }}" method="post">
                         @csrf
-                        @method('DELETEs')
+                        @method('DELETE')
                         <button class="btn btn-dark" type="submit"> Delete</button>
                     </form>
                 </td>
