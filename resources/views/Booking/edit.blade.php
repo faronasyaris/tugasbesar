@@ -16,9 +16,9 @@
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="id_playstation"> ID Playstation </label>
-            <input type="text" class="form-control" name="id_playstation" required value="{{$booking->id_playstation}}">
-        </div>
+                <label for="id_playstation"> ID Booking </label>
+                <input type="text" class="form-control" name="id_booking" required>
+            </div>
         <div class="form-group">
             <label for="name"> Tanggal </label>
             <input type="text" class="form-control" name="name" required value="{{$booking->name}}" >

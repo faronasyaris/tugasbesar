@@ -2,8 +2,8 @@
 <?php $no=1 ?>
 @section ("content")
 <br>
-<h3>Booking Data</h3>
-    <a href="/booking/create" class="btn btn-danger"> Add Booking</a><br>
+<h3>Playstation Data</h3>
+    <a href="/Playstation/create" class="btn btn-danger"> Add Playstation</a><br>
     <div class="col-sm-12"> <br>
 
         @if (session()->get('success'))
@@ -17,6 +17,7 @@
         <tr>
             <th> Nomor </th>
             <th> ID Playstation </th>
+            <th> ID Playstation </th>
             <th> Nama Penyewa</th>
             <th> Tanggal Sewa </th>
             <th> Durasi Peminjaman </th>
@@ -26,21 +27,18 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($booking as $bookings)
+        @foreach ($Playstation as $Playstations)
         <tr>
             <td> {{ $no++ }} </td>
-            <td> {{ $bookings->id_playstation }} </td>
-            <td> {{ $bookings->name }} </td>
-            <td> {{ $bookings->booking_date }} </td>
-            <td> {{ $bookings->booking_duration }} </td>
-            <td> {{ $bookings->return_time}} </td>
-            <td> {{ $bookings->guarantee }} </td>
-            <td> {{ $bookings->status}}
-                <td>
-                    <a href="/booking/{{ $bookings->id_playstation}}/edit/" class="btn btn-info"> Edit</a>
+            <td> {{ $Playstations->id_playstation }} </td>
+            <td> {{ $Playstations->name }} </td>
+            <td> {{ $Playstations->foto }} </td>
+            <td> {{ $Playstations->status }} </td>
+            <td> {{ $Playstations->serial_number}} </td>
+                    <a href="/Playstation/{{ $Playstations->id_playstation}}/edit/" class="btn btn-info"> Edit</a>
                 </td>
                 <td>
-                    <form action="/booking/{{ $bookings->id_playstation }}" method="post">
+                    <form action="/Playstation/{{ $Playstations->id_playstation }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-dark" type="submit"> Delete</button>

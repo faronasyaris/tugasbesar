@@ -14,7 +14,11 @@ class CreatePlaystationsTable extends Migration
     public function up()
     {
         Schema::create('playstations', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_playstation');
+            $table->string('name');
+            $table->string('foto');
+            $table->string('status');
+            $table->string('serial_number');
             $table->timestamps();
         });
     }

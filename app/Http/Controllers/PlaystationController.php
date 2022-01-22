@@ -2,84 +2,71 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Playstation;
+use App\Models\playstation;
 use Illuminate\Http\Request;
 
-class PlaystationController extends Controller
+class playstationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $playstation = playstation::all();
+        return view('playstation.index', compact('playstation'));
+        
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('playstation.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_playstation' => 'required',
+            'name' => 'required',
+            'foto' => 'required',
+            'status' => 'required',
+            'serial_number' => 'required',
+        ]);
+
+        playstation::create($request->all());
+        return redirect('/playstation')->with('success', 'playstation Noted!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Playstation  $playstation
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Playstation $playstation)
+    public function edit($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Playstation  $playstation
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Playstation $playstation)
-    {
-        //
+        $playstation = playstation::find($id);
+        return view('playstation.edit', ['playstation' => $playstation]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Playstation  $playstation
+     * @param  \App\Models\playstation  $playstation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Playstation $playstation)
+    public function update(Request $request, playstation $playstation)
     {
-        //
+        $request->validate([
+            'id_playstation' => 'required',
+            'name' => 'required',
+            'status' => 'required',
+            'serial_number' => 'required',
+        ]);
+
+        $playstation->update($request->all());
+        return redirect('/playstation')->with('success', 'playstation Updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Playstation  $playstation
+     * @param  \App\Models\playstation  $playstation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Playstation $playstation)
+    public function destroy(playstation $playstation)
     {
-        //
+        $playstation->delete();
+        return redirect('/playstation')->with('success', 'playstation Data Deleted');
     }
 }

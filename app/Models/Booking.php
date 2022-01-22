@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
-    protected $primaryKey = 'id_playstation';
+    protected $primaryKey = 'id_booking';
     protected $fillable = [
-        'id_playstation', 'name', 'booking_date', 'booking_duration', 'return_time', 'guarantee', 'status'
+        'id_booking', 'id_playstation', 'name', 'booking_date', 'booking_duration', 'return_time', 'guarantee', 'status'
     ];
 
     

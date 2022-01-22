@@ -15,6 +15,10 @@
         <form method="post" action="/booking">
             @csrf
             <div class="form-group">
+                <label for="id_booking"> ID Booking </label>
+                <input type="text" class="form-control" name="id_booking" required>
+            </div>
+            <div class="form-group">
                 <label for="id_playstation"> ID Playstation </label>
                 <input type="text" class="form-control" name="id_playstation" required>
             </div>

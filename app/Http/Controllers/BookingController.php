@@ -21,6 +21,7 @@ class bookingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'id_booking' => 'required',
             'id_playstation' => 'required',
             'name' => 'required',
             'booking_date' => 'required',
@@ -50,6 +51,7 @@ class bookingController extends Controller
     public function update(Request $request, booking $booking)
     {
         $request->validate([
+            'id_booking' => 'required',
             'id_playstation' => 'required',
             'name' => 'required',
             'booking_date' => 'required',

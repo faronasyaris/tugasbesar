@@ -16,6 +16,7 @@
     <thead>
         <tr>
             <th> Nomor </th>
+            <th> ID Booking </th>
             <th> ID Playstation </th>
             <th> Nama Penyewa</th>
             <th> Tanggal Sewa </th>
@@ -29,6 +30,7 @@
         @foreach ($booking as $bookings)
         <tr>
             <td> {{ $no++ }} </td>
+            <td> {{ $bookings->id_booking }} </td>
             <td> {{ $bookings->id_playstation }} </td>
             <td> {{ $bookings->name }} </td>
             <td> {{ $bookings->booking_date }} </td>
