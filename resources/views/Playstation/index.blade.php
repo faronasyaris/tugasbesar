@@ -40,7 +40,7 @@
                 <td>
                     <form action="/playstation/{{ $playstation->id }}" method="post">
                         @csrf
-                        @method('DELETE')
+                        @method('DELETEs')
                         <button class="btn btn-dark" type="submit"> Delete</button>
                     </form>
                 </td>
