@@ -27,7 +27,7 @@
                     <a class="nav-item nav-link active" href="/home">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-item nav-link active" href="/">Playstation</a>
+                    <a class="nav-item nav-link active" href="/playstation">Playstation</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-item nav-link active" href="/booking">Booking</a>

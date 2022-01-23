@@ -39,10 +39,10 @@
             <td> {{ $bookings->guarantee }} </td>
             <td> {{ $bookings->status}}
                 <td>
-                    <a href="/booking/{{ $bookings->id_playstation}}/edit/" class="btn btn-info"> Edit</a>
+                    <a href="/booking/{{ $bookings->id_booking}}/edit/" class="btn btn-info"> Edit</a>
                 </td>
                 <td>
-                    <form action="/booking/{{ $bookings->id_playstation }}" method="post">
+                    <form action="/booking/{{ $bookings->id_booking }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-dark" type="submit"> Delete</button>

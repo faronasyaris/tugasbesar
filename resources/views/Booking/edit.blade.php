@@ -1,7 +1,7 @@
 @extends("Layout.app")
 @section("content")
 <div class="col-md-8 offset-md-2">
-    <h3>TAdd Booking</h3>
+    <h3>Add Booking</h3>
     @if($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -16,8 +16,8 @@
         @csrf
         @method('PUT')
         <div class="form-group">
-                <label for="id_playstation"> ID Booking </label>
-                <input type="text" class="form-control" name="id_booking" required>
+                <label for="id_playstation"> ID Playstation </label>
+                <input type="text" class="form-control" name="id_playstation" required>
             </div>
         <div class="form-group">
             <label for="name"> Tanggal </label>
