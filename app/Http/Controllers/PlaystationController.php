@@ -20,15 +20,27 @@ class playstationController extends Controller
 
     public function store(Request $request)
     {
+    
         $request->validate([
-            'id_playstation' => 'required',
             'name' => 'required',
             'foto' => 'required',
-            'status' => 'required',
             'serial_number' => 'required',
         ]);
 
-        playstation::create($request->all());
+        $file = $request->file('foto');
+        $nama=uniqid('img_').'.'.$file->getClientOriginalExtension();
+   
+ 
+
+        $tujuan_upload = 'data_file';
+	    $file->move($tujuan_upload,$nama);
+
+        playstation::create([
+            'name'=>$request->name,
+            'foto'=>$nama,
+            'status'=>'Ada',
+            'serial_number'=>$request->serial_number
+        ]);
         return redirect('/playstation')->with('success', 'playstation Noted!');
     }
 
@@ -48,13 +60,28 @@ class playstationController extends Controller
     public function update(Request $request, playstation $playstation)
     {
         $request->validate([
-            'id_playstation' => 'required',
             'name' => 'required',
-            'status' => 'required',
             'serial_number' => 'required',
         ]);
+        if (!empty($request->foto)){
+            $file = $request->file('foto');
 
-        $playstation->update($request->all());
+        $nama=uniqid('img_').'.'.$file->getClientOriginalExtension();
+   
+        $tujuan_upload = 'data_file';
+	    $file->move($tujuan_upload,$nama);
+        $playstation->update([
+            'name'=>$request->name,
+            'foto'=>$nama,  
+            'serial_number'=>$request->serial_number
+        ]);
+        }
+
+        $playstation->update([
+            'name'=>$request->name,
+            'foto'=>$playstation->foto,  
+            'serial_number'=>$request->serial_number
+        ]);
         return redirect('/playstation')->with('success', 'playstation Updated!');
     }
 

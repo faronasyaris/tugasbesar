@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-md-8 offset-md-2">
-        <h3> Add Booking </h3>
+        <h3> Edit Playstation </h3>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -12,39 +12,20 @@
                 </ul>
             </div> <br />
         @endif
-        <form method="post" action="/booking">
-            @
-            <div class="form-group">
-                <label for="id_playstation"> ID Booking </label>
-                <input type="text" class="form-control" name="id_booking" required>
-            </div>
-            <div class="form-group">
-                <label for="id_playstation"> ID Playstation </label>
-                <input type="text" class="form-control" name="id_playstation" required>
-            </div>
+        <form method="post" enctype="multipart/form-data" action="/playstation/{{$playstation->id_playstation}}">
+            @csrf
+            @method('PUT')
             <div class="form-group">
                 <label for="name"> Nama </label>
-                <input type="text" class="form-control" name="name" required>
+                <input type="text" class="form-control" name="name" required value="{{$playstation->name}}">
             </div>
             <div class="form-group">
-                <label for="booking_date"> Tanggal Sewa</label>
-                <input type="date" class="form-control" name="booking_date" required>
-            </div>
+                <label for="foto"> Foto</label>
+                <input type="file" class="form-control" name="foto"  accept="image/png, image/gif, image/jpeg">
+            </div> 
             <div class="form-group">
-                <label for="booking_duration"> Durasi </label>
-                <input type="text" class="form-control" name="booking_duration" required>
-            </div>
-            <div class="form-group">
-                <label for="return_time"> Tanggal Pengembalian </label>
-                <input type="date" class="form-control" name="return_time" required>
-            </div>
-            <div class="form-group">
-                <label for="guarantee"> Jaminan </label>
-                <input type="text" class="form-control" name="guarantee" required>
-            </div>
-            <div class="form-group">
-                <label for="status"> Status </label>
-                <input type="text" class="form-control" name="status" required>
+                <label for="serial_number"> Serial Number </label>
+                <input type="text" class="form-control" name="serial_number" required value="{{$playstation->serial_number}}">
             </div>
             <button type="submit" class="btn btn-primary"> Save Booking </button>
         </form>

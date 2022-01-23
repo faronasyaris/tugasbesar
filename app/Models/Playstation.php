@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Playstation extends Model
 {
-    use HasFactory;
+    protected $primaryKey = 'id_playstation';
+    protected $fillable = [
+        'name', 'foto', 'status', 'serial_number'
+    ];
 }

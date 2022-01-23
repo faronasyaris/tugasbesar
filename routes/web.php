@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PlaystationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,5 @@ Route::get('/', function () {
 });
 
 Route::resource('/booking', BookingController::class);
+Route::resource('/playstation', PlaystationController::class);
 

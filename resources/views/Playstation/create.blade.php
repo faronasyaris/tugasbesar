@@ -12,27 +12,27 @@
                 </ul>
             </div> <br />
         @endif
-        <form method="post" action="/playstation">
+        <form method="post" enctype="multipart/form-data" action="/playstation">
             @csrf
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="id_playstation"> ID Playstation </label>
                 <input type="text" class="form-control" name="id_playstation" required>
-            </div>
+            </div> -->
             <div class="form-group">
                 <label for="name"> Nama </label>
                 <input type="text" class="form-control" name="name" required>
             </div>
             <div class="form-group">
                 <label for="foto"> Foto</label>
-                <input type="string" class="form-control" name="foto" required>
+                <input type="file" class="form-control" name="foto" required accept="image/png, image/gif, image/jpeg">
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="status"> Status</label>
                 <input type="text" class="form-control" name="status" required>
-            </div>
+            </div> -->
             <div class="form-group">
                 <label for="serial_number"> Serial Number </label>
-                <input type="date" class="form-control" name="serial_number" required>
+                <input type="text" class="form-control" name="serial_number" required>
             </div>
             <button type="submit" class="btn btn-primary"> Save Playstation </button>
         </form>
