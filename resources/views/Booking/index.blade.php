@@ -45,7 +45,7 @@
                     <form action="/booking/{{ $bookings->id_booking }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-dark" type="submit"> Delete</button>
+                        <button class="btn btn-dark" type="submit"> Selesai </button>
                     </form>
                 </td>
         </tr>

@@ -16,7 +16,7 @@ use App\Http\Controllers\PlaystationController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home/home');
 });
 
 Route::resource('/booking', BookingController::class);
