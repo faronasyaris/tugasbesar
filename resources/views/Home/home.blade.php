@@ -12,40 +12,24 @@
     </div>
 <div class="container">
     <div class="row">
-         <div class="col-md-3 ml-5">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+        @foreach($playstation as $playstations)
+         <div class="col-md-4 mt-3">
+            <div class="card" style="width: 18rem;height:20rem";>
+                <img class="card-img-top" src="{{asset('data_file/'.$playstations->foto)}}" alt="Card image cap"style="height:12rem";>
                 <div class="card-body">
-                    <h5 class="card-title">Playstation</h5>
-                     <p class="card-text"></p>
-                     <a href="#" class="btn btn-primary">status</a>
-                    </div>
-                 </div>
-            </div>
-        <div class="col-md-3 ml-3">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Playstation</h5>
-                     <p class="card-text"></p>
-                     <a href="#" class="btn btn-primary">status</a>
-                    </div>
-                 </div>
-            </div>
-<div class="col-md-5 ml-4">
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Playstation</h5>
-                     <p class="card-text"></p>
-                     <a href="#" class="btn btn-primary">status</a>
-                        </div>
-                    </div>
+                    <h5 class="card-title"><center>{{$playstations->name}}</center></h5>
+                     <center>
+                         @if($playstations->status == 'Ada')
+                         <a href="#" class="btn btn-primary">Tersedia</a>
+                         @else
+                         <a href="#" class="btn btn-danger">Dipinjam</a>
+                         @endif
+                        </center>
                 </div>
             </div>
         </div>
-    </div>  
+        @endforeach
 </div>
 </div>
-<br>
+
 @stop

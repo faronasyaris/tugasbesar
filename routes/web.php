@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PlaystationController;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +15,7 @@ use App\Http\Controllers\PlaystationController;
 |
 */
 
-Route::get('/', function () {
-    return view('home/home');
-});
+Route::get('/', [HomeController::class,'index']);
 
 Route::resource('/booking', BookingController::class);
 Route::resource('/playstation', PlaystationController::class);
