@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-item nav-link active" href="/home">Home</a>
+                    <a class="nav-item nav-link active" href="/">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-item nav-link active" href="/playstation">Playstation</a>

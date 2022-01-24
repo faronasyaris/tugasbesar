@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\booking;
 use Illuminate\Http\Request;
+use App\Models\Playstation;
 
 class bookingController extends Controller
 {
@@ -15,7 +16,8 @@ class bookingController extends Controller
     }
     public function create()
     {
-        return view('booking.create');
+        $playstation=Playstation::where('status','Ada')->get();
+        return view('booking.create',compact('playstation'));
     }
 
     public function store(Request $request)
@@ -27,10 +29,13 @@ class bookingController extends Controller
             'booking_duration' => 'required',
             'return_time' => 'required',
             'guarantee' => 'required',
-            'status' => 'required',
-        ]);
 
+        ]);
+        $request['status'] = 'Dipinjam';
+        $ps = Playstation::where('id_playstation',$request->id_playstation)->first();
         booking::create($request->all());
+        $ps->update(['status'=>'Dipinjam']);
+       
         return redirect('/booking')->with('success', 'Booking Noted!');
     }
 
@@ -71,7 +76,10 @@ class bookingController extends Controller
      */
     public function destroy(booking $booking)
     {
+        $ps = Playstation::where('id_playstation',$booking->id_playstation)->first();
+        $ps->update(['status'=>'Ada']);
         $booking->delete();
+       
         return redirect('/booking')->with('success', 'Booking Data Deleted');
     }
 }

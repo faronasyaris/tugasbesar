@@ -16,7 +16,12 @@
             @csrf
             <div class="form-group">
                 <label for="id_playstation"> ID Playstation </label>
-                <input type="text" class="form-control" name="id_playstation" required>
+                
+                <select class="form-control" name="id_playstation" required>
+                    @foreach($playstation as $playstations)
+                    <option value="{{$playstations->id_playstation}}">{{$playstations->name}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label for="name"> Nama </label>
@@ -38,10 +43,10 @@
                 <label for="guarantee"> Jaminan </label>
                 <input type="text" class="form-control" name="guarantee" required>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="status"> Status </label>
                 <input type="text" class="form-control" name="status" required>
-            </div>
+            </div> -->
             <button type="submit" class="btn btn-primary"> Save Booking </button>
         </form>
     </div>

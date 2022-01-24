@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\playstation;
+use App\Models\Playstation;
 use Illuminate\Http\Request;
 
 class playstationController extends Controller
 {
     public function index()
     {
-        $playstation = playstation::all();
+        $playstation = Playstation::all();
         return view('playstation.index', compact('playstation'));
         
     }
