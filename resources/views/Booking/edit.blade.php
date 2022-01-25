@@ -12,13 +12,14 @@
         </div><br>
     @endif
 
-    <form method="post" action="/booking/{{$booking->id_playstation}}">
+    <form method="post" action="/booking/{{$booking->id_booking}}">
         @csrf
         @method('PUT')
-        <div class="form-group">
-                <label for="id_playstation"> ID Playstation </label>
-                <input type="text" class="form-control" name="id_playstation" required>
-            </div>
+        <select class="form-control" name="id_playstation" required>
+                    @foreach($playstation as $playstations)
+                    <option value="{{$playstations->id_playstation}}">{{$playstations->name}}</option>
+                    @endforeach
+        </select>
         <div class="form-group">
             <label for="name"> Tanggal </label>
             <input type="text" class="form-control" name="name" required value="{{$booking->name}}" >
@@ -39,10 +40,10 @@
             <label for="guarantee"> Jaminan </label>
             <input type="text" class="form-control" name="guarantee" required value="{{$booking->guarantee}}">
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="status"> Status </label>
             <input type="text" class="form-control" name="status" required value="{{$booking->status}}">
-        </div>
+        </div> -->
         <button type="submit" class="btn btn-primary"> Save Updated Booking </button>
     </form>
 </div>

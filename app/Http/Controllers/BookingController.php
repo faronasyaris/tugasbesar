@@ -41,8 +41,9 @@ class bookingController extends Controller
 
     public function edit($id)
     {
+        $playstation=Playstation::where('status','Ada')->get();
         $booking = booking::find($id);
-        return view('booking.edit', ['booking' => $booking]);
+        return view('booking.edit', ['booking' => $booking,'playstation'=>$playstation]);
     }
 
     /**
@@ -61,9 +62,13 @@ class bookingController extends Controller
             'booking_duration' => 'required',
             'return_time' => 'required',
             'guarantee' => 'required',
-            'status' => 'required',
+   
         ]);
-
+        $request['status'] = 'Dipinjam';
+        $ps = Playstation::where('id_playstation',$booking->id_playstation)->first();
+        $ps->update(['status'=>'Ada']);
+        $p2s = Playstation::where('id_playstation',$request->id_playstation)->first();
+        $p2s->update(['status'=>'Dipinjam']);
         $booking->update($request->all());
         return redirect('/booking')->with('success', 'Booking Updated!');
     }
